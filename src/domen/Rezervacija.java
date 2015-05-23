@@ -19,75 +19,128 @@ import java.util.logging.Logger;
  * @author Megi
  */
 public class Rezervacija implements GenerickiDomenskiObjekat {
-    
+
     private int rezervacijaID;
-    private int klijentID;
-    private int tretmanID;
-    private int zaposleniID;
+    private Korisnik klijent;
+    private Tretman tretman;
+    private Zaposleni zaposleni;
     private Date vreme;
 
-    public Rezervacija(int klijentID, int tretmanID, int zaposleniID, Date vreme) {
-        this.klijentID = klijentID;
-        this.tretmanID = tretmanID;
-        this.zaposleniID = zaposleniID;
+    public Rezervacija() {
+    }
+
+    public Rezervacija(Korisnik klijent, Tretman tretman, Zaposleni zaposleni, Date vreme) {
+        this.klijent = klijent;
+        this.tretman = tretman;
+        this.zaposleni = zaposleni;
         this.vreme = vreme;
     }
     
-  
     
-    public Rezervacija() {
+
+    public int getRezervacijaID() {
+        return rezervacijaID;
     }
-    
+
+    public void setRezervacijaID(int rezervacijaID) {
+        this.rezervacijaID = rezervacijaID;
+    }
+
+    public Korisnik getKlijent() {
+        return klijent;
+    }
+
+    public void setKlijent(Korisnik klijent) {
+        this.klijent = klijent;
+    }
+
+    public Tretman getTretman() {
+        return tretman;
+    }
+
+    public void setTretman(Tretman tretman) {
+        this.tretman = tretman;
+    }
+
+    public Zaposleni getZaposleni() {
+        return zaposleni;
+    }
+
+    public void setZaposleni(Zaposleni zaposleni) {
+        this.zaposleni = zaposleni;
+    }
+
     public Date getVreme() {
         return vreme;
     }
-    
+
     public void setVreme(Date vreme) {
         this.vreme = vreme;
     }
-    
+
     @Override
     public String dajNazivTabele() {
         return "rezervacija";
     }
-    
+
     @Override
     public List<GenerickiDomenskiObjekat> vratiListuIzRS(ResultSet rs) throws Exception {
         List<GenerickiDomenskiObjekat> listaRezervacija = new ArrayList<>();
         while (rs.next()) {
+
+            Korisnik k = new Korisnik();
+            k.setKlijentID(rs.getInt("klijentID"));
+            k.setImePrezime(rs.getString("imePrezime"));
+            k.setKorisnickoIme(rs.getString("korisnickoIme"));
+            k.setKorisnickaSifra(rs.getString("korisnickaSifra"));
+
+            Tretman t = new Tretman();
+
+            t.setTretmanID(rs.getInt("tretmanID"));
+            t.setOpis(rs.getString("opis"));
+            t.setCena(rs.getDouble("cena"));
+            t.setTrajanjeUMin(rs.getInt("trajanjeUMin"));
+
+            Zaposleni z = new Zaposleni();
+            z.setZaposleniID(rs.getInt("zaposleniID"));
+            z.setImePrezime(rs.getString("imePrezime"));
+            z.setStepenSS(rs.getString("stepenSS"));
+            z.setDatumRodjenja(new java.util.Date(rs.getDate("datumRodjenja").getTime()));
+
             Rezervacija r = new Rezervacija();
+
             r.setRezervacijaID(rs.getInt("rezervacijaID"));
-            r.setKlijentID(rs.getInt("klijentID"));
-            r.setTretmanID(rs.getInt("tretmanID"));
-            r.setZaposleniID(rs.getInt("zaposleniID"));            
+            r.setKlijent(k);
+            r.setTretman(t);
+            r.setZaposleni(z);
             r.setVreme(new java.util.Date(rs.getDate("vreme").getTime()));
-            
+
             listaRezervacija.add(r);
         }
         return listaRezervacija;
     }
-    
+
     @Override
     public String dajInsertVrednosti() {
         String vr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(vreme);
-        return klijentID+", "+tretmanID  + ", " + zaposleniID+ ", '" + vr + "'";
+        return klijent.getKlijentID() + ", " + tretman.getTretmanID() + ", " + zaposleni.getZaposleniID() + ", '" + vr + "'";
     }
-    
+
     @Override
     public String dajApdejtVrednosti() {
         return "";
     }
-    
+
     @Override
     public String dajImenaSvihAtributa() {
         return "klijentID, tretmanID, zaposleniID, vreme";
     }
-    
+
     @Override
     public String dajID() {
         return "rezervacijaID";
     }
-    
+
     @Override
     public int vratiBrojIzRS(ResultSet rs) {
         int broj = 0;
@@ -98,37 +151,5 @@ public class Rezervacija implements GenerickiDomenskiObjekat {
         }
         return broj;
     }
-    
-    public int getRezervacijaID() {
-        return rezervacijaID;
-    }
-    
-    public void setRezervacijaID(int rezervacijaID) {
-        this.rezervacijaID = rezervacijaID;
-    }
-    
-    public int getTretmanID() {
-        return tretmanID;
-    }
-    
-    public void setTretmanID(int tretmanID) {
-        this.tretmanID = tretmanID;
-    }
-    
-    public int getZaposleniID() {
-        return zaposleniID;
-    }
-    
-    public void setZaposleniID(int zaposleniID) {
-        this.zaposleniID = zaposleniID;
-    }
 
-    public int getKlijentID() {
-        return klijentID;
-    }
-
-    public void setKlijentID(int klijentID) {
-        this.klijentID = klijentID;
-    }
-    
 }

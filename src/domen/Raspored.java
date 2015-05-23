@@ -61,10 +61,20 @@ public class Raspored implements GenerickiDomenskiObjekat {
     public List<GenerickiDomenskiObjekat> vratiListuIzRS(ResultSet rs) throws Exception {
         List<GenerickiDomenskiObjekat> rasporedi = new ArrayList<>();
         while (rs.next()) {
-            Zaposleni z = new Zaposleni(rs.getInt("zaposleniID"));
-            Tretman t = new Tretman(rs.getInt("tretmanID"));
-            int brojTermina = rs.getInt("brojTermina");
-            Raspored r = new Raspored(brojTermina, z, t);
+            Zaposleni z = new Zaposleni();
+            z.setZaposleniID(rs.getInt("zaposleniID"));
+            z.setImePrezime(rs.getString("imePrezime"));
+            z.setStepenSS(rs.getString("stepenSS"));
+            z.setDatumRodjenja(new java.util.Date(rs.getDate("datumRodjenja").getTime()));
+
+            Tretman t = new Tretman();
+            t.setTretmanID(rs.getInt("tretmanID"));
+            t.setOpis(rs.getString("opis"));
+            t.setCena(rs.getDouble("cena"));
+            t.setTrajanjeUMin(rs.getInt("trajanjeUMin"));
+         
+            int brTermina = rs.getInt("brojTermina");
+            Raspored r = new Raspored(brTermina, z, t);
             rasporedi.add(r);
         }
         return rasporedi;

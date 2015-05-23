@@ -85,17 +85,22 @@ public class Preparat implements GenerickiDomenskiObjekat {
     public List<GenerickiDomenskiObjekat> vratiListuIzRS(ResultSet rs) throws Exception {
         List<GenerickiDomenskiObjekat> listaPreparata = new ArrayList<>();
         while (rs.next()) {
-            int id = rs.getInt("preparatID");
-            String nazivP = rs.getString("naziv");
-            double cena = rs.getDouble("cena");
-            int proizvodjacID = rs.getInt("proizvodjac");
+
+            Kompanija k = new Kompanija();
+            k.setKompanijaID(rs.getInt("proizvodjac"));
+            k.setPib(rs.getString("pib"));
+            k.setMaticniBroj(rs.getString("maticniBroj"));
+            k.setNaziv(rs.getString("naziv"));
+            k.setZr(rs.getString("ziroRacun"));
+            k.setDatumOsnivanja(new java.util.Date(rs.getDate("datumOsnivanja").getTime()));
+            k.setAdresa(rs.getString("adresa"));
 
             Preparat p = new Preparat();
 
-            p.setPreparatID(id);
-            p.setNaziv(nazivP);
-            p.setCena(cena);
-            p.setProizvodjac(new Kompanija(proizvodjacID));
+            p.setPreparatID(rs.getInt("preparatID"));
+            p.setNaziv(rs.getString("naziv"));
+            p.setCena(rs.getDouble("cena"));
+            p.setProizvodjac(k);
             listaPreparata.add(p);
         }
         return listaPreparata;
