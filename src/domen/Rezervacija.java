@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -151,5 +152,36 @@ public class Rezervacija implements GenerickiDomenskiObjekat {
         }
         return broj;
     }
+
+    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Rezervacija other = (Rezervacija) obj;
+        if (this.rezervacijaID != other.rezervacijaID) {
+            return false;
+        }
+        if (!Objects.equals(this.klijent, other.klijent)) {
+            return false;
+        }
+        if (!Objects.equals(this.tretman, other.tretman)) {
+            return false;
+        }
+        if (!Objects.equals(this.zaposleni, other.zaposleni)) {
+            return false;
+        }
+        if (!Objects.equals(this.vreme, other.vreme)) {
+            return false;
+        }
+        return true;
+    }
+    
+    
 
 }

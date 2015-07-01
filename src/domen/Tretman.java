@@ -3,6 +3,7 @@ package domen;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -30,13 +31,39 @@ public class Tretman implements GenerickiDomenskiObjekat {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Tretman t = (Tretman) obj;
-        if (getOpis().equals(t.getOpis())) {
-            return true;
-        }
-        return false;
+    public int hashCode() {
+        int hash = 3;
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Tretman other = (Tretman) obj;
+        if (this.tretmanID != other.tretmanID) {
+            return false;
+        }
+        if (!Objects.equals(this.opis, other.opis)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.cena) != Double.doubleToLongBits(other.cena)) {
+            return false;
+        }
+        if (this.trajanjeUMin != other.trajanjeUMin) {
+            return false;
+        }
+        if (!Objects.equals(this.listaPreparata, other.listaPreparata)) {
+            return false;
+        }
+        return true;
+    }
+
+   
 
     @Override
     public String toString() {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="RadSaBazom">
+  <ClassDiagramComponents>
+    <Class name="RadSaBazom" package="baza" visibility="public" isFinal="true" xPosition="44.0" yPosition="83.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getInstance" returnType="RadSaBazom" visibility="public" isStatic="true"/>
+        <Method name="ucitajDrajver" returnType="void" visibility="public"/>
+        <Method name="uspostaviKonekcijuPropertiesFile" returnType="void" visibility="public"/>
+        <Method name="zatvoriKonekciju" returnType="void" visibility="public"/>
+        <Method name="potvrdiTransakciju" returnType="void" visibility="public"/>
+        <Method name="ponistiTransakciju" returnType="void" visibility="public"/>
+        <Method name="vratiSveObjekte" returnType="List&lt;GenerickiDomenskiObjekat&gt;" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+        <Method name="sacuvaj" returnType="int" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+        </Method>
+        <Method name="izmeni" returnType="void" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+        </Method>
+        <Method name="pretraziPoID" returnType="GenerickiDomenskiObjekat" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+        <Method name="obrisi" returnType="void" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="instance" source="baza.RadSaBazom" target="baza.RadSaBazom" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="baza.RadSaBazom" target="baza.RadSaBazom" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

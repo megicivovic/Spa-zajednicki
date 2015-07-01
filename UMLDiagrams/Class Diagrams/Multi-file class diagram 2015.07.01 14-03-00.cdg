@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-file class diagram">
+  <ClassDiagramComponents>
+    <Class name="VratiSveKompanije" package="so.kompanija" visibility="public" xPosition="3700.0" yPosition="3563.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ModelBaze" package="baza" visibility="public" xPosition="1871.0" yPosition="2904.0">
+      <Fields>
+        <Field name="podesavanja" type="Properties" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="ModelBaze" visibility="public" isStatic="true"/>
+        <Method name="dajNaziveSvhPodrzanihBaza" returnType="List&lt;String&gt;" visibility="public"/>
+        <Method name="dajUrl" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+        </Method>
+        <Method name="dajDrajver" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+        </Method>
+        <Method name="dajKorisnika" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+        </Method>
+        <Method name="dajSifru" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+        </Method>
+        <Method name="dajNazivTrenutneBaze" returnType="String" visibility="public"/>
+        <Method name="dajURL" returnType="String" visibility="public"/>
+        <Method name="dajDrajver" returnType="String" visibility="public"/>
+        <Method name="dajKorisnika" returnType="String" visibility="public"/>
+        <Method name="dajSifru" returnType="String" visibility="public"/>
+        <Method name="postaviURL" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+          <Argument type="String" name="url"/>
+        </Method>
+        <Method name="postaviDrajver" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+          <Argument type="String" name="drajver"/>
+        </Method>
+        <Method name="postaviKorisnika" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+          <Argument type="String" name="korisnik"/>
+        </Method>
+        <Method name="postaviSifru" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+          <Argument type="String" name="sifra"/>
+        </Method>
+        <Method name="postaviTrenutnuBazu" returnType="String" visibility="public">
+          <Argument type="String" name="dbms"/>
+        </Method>
+        <Method name="sacuvajPodesavanja" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GenerickaSistemskaOperacija" package="so" visibility="public" isAbstract="true" xPosition="2785.0" yPosition="3545.0">
+      <Fields>
+        <Field name="broker" type="baza.RadSaBazom" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="izvrsiSO" returnType="void" visibility="public" isFinal="true"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected" isAbstract="true"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected" isAbstract="true"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected" isAbstract="true"/>
+        <Method name="potvrdiTransakciju" returnType="void" visibility="private"/>
+        <Method name="ponistiTransakciju" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="Kontroler" package="poslovnalogika" visibility="public" xPosition="1097.0" yPosition="706.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="isPovezanNaServer" returnType="boolean" visibility="public"/>
+        <Method name="setPovezanNaServer" returnType="boolean" visibility="public">
+          <Argument type="boolean" name="povezanNaServer"/>
+        </Method>
+        <Method name="getListaPreparata" returnType="List&lt;Preparat&gt;" visibility="public"/>
+        <Method name="setListaPreparata" returnType="List&lt;Preparat&gt;" visibility="public">
+          <Argument type="List&lt;Preparat&gt;" name="listaPreparata"/>
+        </Method>
+        <Method name="getListaPreparataTretmana" returnType="List&lt;TretmanPreparati&gt;" visibility="public"/>
+        <Method name="setListaPreparataTretmana" returnType="List&lt;TretmanPreparati&gt;" visibility="public">
+          <Argument type="List&lt;TretmanPreparati&gt;" name="listaPreparataTretmana"/>
+        </Method>
+        <Method name="getListaRasporeda" returnType="List&lt;Raspored&gt;" visibility="public"/>
+        <Method name="setListaRasporeda" returnType="List&lt;Raspored&gt;" visibility="public">
+          <Argument type="List&lt;Raspored&gt;" name="listaRasporeda"/>
+        </Method>
+        <Method name="getListaRezervacija" returnType="List&lt;Rezervacija&gt;" visibility="public"/>
+        <Method name="setListaRezervacija" returnType="List&lt;Rezervacija&gt;" visibility="public">
+          <Argument type="List&lt;Rezervacija&gt;" name="listaRezervacija"/>
+        </Method>
+        <Method name="getInstance" returnType="Kontroler" visibility="public" isStatic="true"/>
+        <Method name="getAktivniKlijent" returnType="Korisnik" visibility="public"/>
+        <Method name="setAktivniKlijent" returnType="Korisnik" visibility="public">
+          <Argument type="Korisnik" name="aktivniKlijent"/>
+        </Method>
+        <Method name="getSocket" returnType="Socket" visibility="public"/>
+        <Method name="setSocket" returnType="Socket" visibility="public">
+          <Argument type="Socket" name="socket"/>
+        </Method>
+        <Method name="posaljiPrimi" returnType="KlijentZahtev" visibility="private">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="ulogujSe" returnType="String" visibility="public">
+          <Argument type="String" name="korisnickoIme"/>
+          <Argument type="String" name="sifra"/>
+        </Method>
+        <Method name="registrujSe" returnType="Korisnik" visibility="public">
+          <Argument type="Korisnik" name="klijent"/>
+        </Method>
+        <Method name="validirajKorisnickoIme" returnType="String" visibility="public">
+          <Argument type="String" name="korisnickoIme"/>
+        </Method>
+        <Method name="validirajIPAdresu" returnType="String" visibility="public">
+          <Argument type="String" name="ip"/>
+        </Method>
+        <Method name="validirajBrojPorta" returnType="String" visibility="public">
+          <Argument type="String" name="brojPorta"/>
+        </Method>
+        <Method name="validirajIme" returnType="String" visibility="public">
+          <Argument type="String" name="ime"/>
+        </Method>
+        <Method name="validirajVreme" returnType="String" visibility="public">
+          <Argument type="String" name="sVreme"/>
+        </Method>
+        <Method name="validirajSifru" returnType="String" visibility="public">
+          <Argument type="String" name="sifra"/>
+        </Method>
+        <Method name="vratiSveZaposlene" returnType="List&lt;Zaposleni&gt;" visibility="public"/>
+        <Method name="vratiSveTretmane" returnType="List&lt;Tretman&gt;" visibility="public"/>
+        <Method name="vratiSveRasporede" returnType="List&lt;Raspored&gt;" visibility="public"/>
+        <Method name="vratiSveRezervacije" returnType="List&lt;Rezervacija&gt;" visibility="public"/>
+        <Method name="vratiSveRezervacijeDana" returnType="GregorianCalendar" visibility="public">
+          <Argument type="GregorianCalendar" name="dan"/>
+        </Method>
+        <Method name="vratiSveRezervacijeRasporeda" returnType="Raspored" visibility="public">
+          <Argument type="Raspored" name="r"/>
+        </Method>
+        <Method name="vratiSvePreparate" returnType="List&lt;Preparat&gt;" visibility="public"/>
+        <Method name="vratiSveKompanije" returnType="List&lt;Kompanija&gt;" visibility="public"/>
+        <Method name="dodajRezervaciju" returnType="Rezervacija" visibility="public">
+          <Argument type="Rezervacija" name="r"/>
+        </Method>
+        <Method name="dodajTretman" returnType="Tretman" visibility="public">
+          <Argument type="Tretman" name="t"/>
+        </Method>
+        <Method name="dodajKorisnika" returnType="Korisnik" visibility="public">
+          <Argument type="Korisnik" name="k"/>
+        </Method>
+        <Method name="stampajPDF" returnType="Rezervacija" visibility="public">
+          <Argument type="Rezervacija" name="r"/>
+        </Method>
+        <Method name="vratiSvePreparateTretmana" returnType="Tretman" visibility="public">
+          <Argument type="Tretman" name="t"/>
+        </Method>
+        <Method name="obrisiPreparateTretmana" returnType="Tretman" visibility="public">
+          <Argument type="Tretman" name="t"/>
+        </Method>
+        <Method name="obrisiRasporedeTretmana" returnType="Tretman" visibility="public">
+          <Argument type="Tretman" name="t"/>
+        </Method>
+        <Method name="obrisiTretman" returnType="Tretman" visibility="public">
+          <Argument type="Tretman" name="t"/>
+        </Method>
+        <Method name="vratiPreparatPoID" returnType="Preparat" visibility="public">
+          <Argument type="Preparat" name="p"/>
+        </Method>
+        <Method name="dodajRaspored" returnType="Raspored" visibility="public">
+          <Argument type="Raspored" name="r"/>
+        </Method>
+        <Method name="dodajKompaniju" returnType="Kompanija" visibility="public">
+          <Argument type="Kompanija" name="kompanija"/>
+        </Method>
+        <Method name="dodajZaposlenog" returnType="Zaposleni" visibility="public">
+          <Argument type="Zaposleni" name="zaposleni"/>
+        </Method>
+        <Method name="dodajPreparat" returnType="Preparat" visibility="public">
+          <Argument type="Preparat" name="preparat"/>
+        </Method>
+        <Method name="dodajPreparateTretmana" returnType="void" visibility="public"/>
+        <Method name="izmeniTretman" returnType="Tretman" visibility="public">
+          <Argument type="Tretman" name="t"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DodajKompaniju" package="so.kompanija" visibility="public" xPosition="3702.0" yPosition="599.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ServerskaNit" package="server" visibility="public" xPosition="2500.0" yPosition="103.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Socket" name="socket"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+        <Method name="zapocniKomunikaciju" returnType="void" visibility="private"/>
+        <Method name="obradiZahtev" returnType="KlijentZahtev" visibility="private" isSynchronized="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ServerKontroler" package="server" visibility="public" xPosition="2881.0" yPosition="871.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="ulogujSe" returnType="KlijentZahtev" visibility="public" isStatic="true">
+          <Argument type="KlijentZahtev" name="zahtev"/>
+        </Method>
+        <Method name="registrujSe" returnType="KlijentZahtev" visibility="public" isStatic="true">
+          <Argument type="KlijentZahtev" name="zahtev"/>
+        </Method>
+        <Method name="validirajKorisnickoIme" returnType="KlijentZahtev" visibility="public" isStatic="true">
+          <Argument type="KlijentZahtev" name="zahtev"/>
+        </Method>
+        <Method name="vratiSveKompanije" returnType="KlijentZahtev" visibility="public" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajRezervaciju" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="proveriRaspolozivost" returnType="Date" visibility="package" isStatic="true">
+          <Argument type="int" name="tretmanID"/>
+          <Argument type="int" name="zaposleniID"/>
+          <Argument type="Date" name="vreme"/>
+        </Method>
+        <Method name="dodajKompaniju" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajKorisnika" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajPreparat" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajPreparateTretmana" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajRaspored" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajTretman" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="dodajZaposlenog" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="izmeniTretman" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="obrisiPreparateTretmana" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="obrisiRasporedeTretmana" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="obrisiTretman" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="stampajPDF" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveKompanijePoID" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveKorisnike" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSvePreparate" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSvePreparatePoID" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveRasporede" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSvePreparateTretmana" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveTretmane" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveTretmanePoID" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveZaposlene" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveZaposlenePoID" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveRezervacije" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveRezervacijeDana" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+        <Method name="vratiSveRezervacijeRasporeda" returnType="KlijentZahtev" visibility="package" isStatic="true">
+          <Argument type="KlijentZahtev" name="klijentZahtev"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Server" package="server" visibility="public" xPosition="1576.0" yPosition="124.0">
+      <Fields>
+        <Field name="serverSocket" type="ServerSocket" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="run" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSveKompanijePoID" package="so.kompanija" visibility="public" xPosition="3700.0" yPosition="3866.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="RadSaBazom" package="baza" visibility="public" isFinal="true" xPosition="2386.0" yPosition="2952.0">
+      <Fields>
+        <Field name="konekcija" type="Connection" visibility="private"/>
+        <Field name="instance" type="RadSaBazom" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getInstance" returnType="RadSaBazom" visibility="public" isStatic="true"/>
+        <Method name="ucitajDrajver" returnType="void" visibility="public"/>
+        <Method name="uspostaviKonekcijuPropertiesFile" returnType="void" visibility="public"/>
+        <Method name="zatvoriKonekciju" returnType="void" visibility="public"/>
+        <Method name="potvrdiTransakciju" returnType="void" visibility="public"/>
+        <Method name="ponistiTransakciju" returnType="void" visibility="public"/>
+        <Method name="vratiSveObjekte" returnType="String" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+        <Method name="sacuvaj" returnType="GenerickiDomenskiObjekat" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+        </Method>
+        <Method name="izmeni" returnType="GenerickiDomenskiObjekat" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+        </Method>
+        <Method name="pretraziPoID" returnType="String" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+        <Method name="obrisi" returnType="String" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="UlogujSe" package="so.korisnik" visibility="public" xPosition="3700.0" yPosition="3716.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="DodajKorisnika" package="so.korisnik" visibility="public" xPosition="3700.0" yPosition="2929.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ValidirajKorisnickoIme" package="so.korisnik" visibility="public" xPosition="3700.0" yPosition="445.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSveKorisnike" package="so.korisnik" visibility="public" xPosition="3700.0" yPosition="305.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="DodajPreparat" package="so.preparat" visibility="public" xPosition="3702.0" yPosition="153.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSvePreparate" package="so.preparat" visibility="public" xPosition="3700.0" yPosition="2.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSvePreparatePoID" package="so.preparat" visibility="public" xPosition="3700.0" yPosition="3386.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="vratiPreparat" returnType="Preparat" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DodajRaspored" package="so.raspored" visibility="public" xPosition="3700.0" yPosition="1365.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ObrisiRasporedeTretmana" package="so.raspored" visibility="public" xPosition="3700.0" yPosition="1521.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSveRasporede" package="so.raspored" visibility="public" xPosition="3700.0" yPosition="4018.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="DodajRezervaciju" package="so.rezervacija" visibility="public" xPosition="3702.0" yPosition="2609.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="StampajRezervaciju" package="so.rezervacija" visibility="public" xPosition="3702.0" yPosition="2294.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSveRezervacije" package="so.rezervacija" visibility="public" xPosition="3700.0" yPosition="902.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="DodajTretman" package="so.tretman" visibility="public" xPosition="3700.0" yPosition="750.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="IzmeniTretman" package="so.tretman" visibility="public" xPosition="3700.0" yPosition="1831.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSveTretmane" package="so.tretman" visibility="public" xPosition="3700.0" yPosition="1673.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiTretmanePoID" package="so.tretman" visibility="public" xPosition="3702.0" yPosition="2759.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="vratiTretman" returnType="Tretman" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ObrisiTretman" package="so.tretman" visibility="public" xPosition="3702.0" yPosition="2447.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="DodajPreparateTretmana" package="so.tretmanpreparati" visibility="public" xPosition="3702.0" yPosition="2136.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="ObrisiPreparateTretmana" package="so.tretmanpreparati" visibility="public" xPosition="3702.0" yPosition="1986.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSvePreparateTretmana" package="so.tretmanpreparati" visibility="public" xPosition="3700.0" yPosition="1213.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="DodajZaposlenog" package="so.zaposleni" visibility="public" xPosition="3700.0" yPosition="1055.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiSveZaposlene" package="so.zaposleni" visibility="public" xPosition="3700.0" yPosition="3230.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="VratiZaposlenePoID" package="so.zaposleni" visibility="public" xPosition="3700.0" yPosition="3080.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="izvrsiValidaciju" returnType="void" visibility="protected"/>
+        <Method name="proveriPreduslov" returnType="void" visibility="protected"/>
+        <Method name="izvrsiKonkretnuOperaciju" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="Kompanija" package="domen" visibility="public" xPosition="1686.0" yPosition="1891.0">
+      <Fields>
+        <Field name="kompanijaID" type="int" visibility="private"/>
+        <Field name="pib" type="String" visibility="private"/>
+        <Field name="maticniBroj" type="String" visibility="private"/>
+        <Field name="naziv" type="String" visibility="private"/>
+        <Field name="zr" type="String" visibility="private"/>
+        <Field name="datumOsnivanja" type="Date" visibility="private"/>
+        <Field name="adresa" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Korisnik" package="domen" visibility="public" xPosition="1951.0" yPosition="1938.0">
+      <Fields>
+        <Field name="klijentID" type="int" visibility="private"/>
+        <Field name="imePrezime" type="String" visibility="private"/>
+        <Field name="korisnickoIme" type="String" visibility="private"/>
+        <Field name="korisnickaSifra" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Preparat" package="domen" visibility="public" xPosition="2228.0" yPosition="1938.0">
+      <Fields>
+        <Field name="cena" type="double" visibility="private"/>
+        <Field name="preparatID" type="int" visibility="private"/>
+        <Field name="naziv" type="String" visibility="private"/>
+        <Field name="proizvodjac" type="Kompanija" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Raspored" package="domen" visibility="public" xPosition="2469.0" yPosition="1957.0">
+      <Fields>
+        <Field name="brojTermina" type="int" visibility="private"/>
+        <Field name="zaposleni" type="Zaposleni" visibility="private"/>
+        <Field name="tretman" type="Tretman" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Rezervacija" package="domen" visibility="public" xPosition="2681.0" yPosition="1948.0">
+      <Fields>
+        <Field name="rezervacijaID" type="int" visibility="private"/>
+        <Field name="klijent" type="Korisnik" visibility="private"/>
+        <Field name="tretman" type="Tretman" visibility="private"/>
+        <Field name="zaposleni" type="Zaposleni" visibility="private"/>
+        <Field name="vreme" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Tretman" package="domen" visibility="public" xPosition="1132.0" yPosition="1891.0">
+      <Fields>
+        <Field name="tretmanID" type="int" visibility="private"/>
+        <Field name="opis" type="String" visibility="private"/>
+        <Field name="cena" type="double" visibility="private"/>
+        <Field name="trajanjeUMin" type="int" visibility="private"/>
+        <Field name="listaPreparata" type="List&lt;Preparat&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="TretmanPreparati" package="domen" visibility="public" xPosition="1373.0" yPosition="1914.0">
+      <Fields>
+        <Field name="tretmanID" type="int" visibility="private"/>
+        <Field name="preparatID" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Zaposleni" package="domen" visibility="public" xPosition="2912.0" yPosition="1957.0">
+      <Fields>
+        <Field name="zaposleniID" type="int" visibility="private"/>
+        <Field name="imePrezime" type="String" visibility="private"/>
+        <Field name="stepenSS" type="String" visibility="private"/>
+        <Field name="datumRodjenja" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="KlijentZahtev" package="protokol.objekti" visibility="public" xPosition="1951.0" yPosition="415.0">
+      <Fields>
+        <Field name="objekat" type="Object" visibility="private"/>
+        <Field name="protokol" type="Protokol" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="ServerOdgovor" package="protokol.objekti" visibility="public" xPosition="2433.0" yPosition="477.0">
+      <Fields>
+        <Field name="objekat" type="Object" visibility="private"/>
+        <Field name="status" type="Status" visibility="private"/>
+        <Field name="poruka" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Interface name="GenerickiDomenskiObjekat" package="domen" visibility="public" xPosition="2034.0" yPosition="2434.0">
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="KorisnickiInterfejs" package="" visibility="public" xPosition="906.0" yPosition="1130.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="so.rezervacija.DodajRezervaciju" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.korisnik.UlogujSe" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.tretmanpreparati.DodajPreparateTretmana" target="so.GenerickaSistemskaOperacija"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Preparat" target="domen.GenerickiDomenskiObjekat"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.rezervacija.DodajRezervaciju" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.kompanija.DodajKompaniju" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="poslovnalogika.Kontroler" target="poslovnalogika.Kontroler" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.korisnik.DodajKorisnika" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation source="server.ServerskaNit" target="protokol.objekti.KlijentZahtev" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.tretman.VratiSveTretmane" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.kompanija.DodajKompaniju" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="poslovnalogika.Kontroler" target="protokol.objekti.ServerOdgovor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.zaposleni.VratiZaposlenePoID" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Rezervacija" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.preparat.DodajPreparat" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Zaposleni" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.tretmanpreparati.ObrisiPreparateTretmana" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.kompanija.VratiSveKompanije" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.rezervacija.VratiSveRezervacije" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.raspored.VratiSveRasporede" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.raspored.VratiSveRasporede" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.korisnik.UlogujSe" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.rezervacija.VratiSveRezervacije" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.raspored.DodajRaspored" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="instance" source="baza.RadSaBazom" target="baza.RadSaBazom" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.preparat.VratiSvePreparate" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Zaposleni" target="domen.GenerickiDomenskiObjekat"/>
+    <UseRelation source="baza.RadSaBazom" target="baza.RadSaBazom" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Tretman" target="domen.GenerickiDomenskiObjekat"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Preparat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.rezervacija.StampajRezervaciju" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation source="domen.GenerickiDomenskiObjekat" target="domen.GenerickiDomenskiObjekat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretman.VratiTretmanePoID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="broker" source="so.GenerickaSistemskaOperacija" target="baza.RadSaBazom" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretman.DodajTretman" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Tretman" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.tretman.VratiTretmanePoID" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.preparat.VratiSvePreparate" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.tretman.DodajTretman" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.korisnik.ValidirajKorisnickoIme" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.tretman.ObrisiTretman" target="so.GenerickaSistemskaOperacija"/>
+    <IsRelation name="is" source="so.zaposleni.DodajZaposlenog" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.preparat.VratiSvePreparatePoID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretman.IzmeniTretman" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.korisnik.VratiSveKorisnike" target="so.GenerickaSistemskaOperacija"/>
+    <HasRelation name="serverKontroler" source="server.ServerskaNit" target="server.ServerKontroler" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Raspored" target="domen.GenerickiDomenskiObjekat"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.kompanija.VratiSveKompanije" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.korisnik.VratiSveKorisnike" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="kontroler" source="KorisnickiInterfejs" target="poslovnalogika.Kontroler" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.zaposleni.VratiZaposlenePoID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="poslovnalogika.Kontroler" target="protokol.objekti.KlijentZahtev" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.zaposleni.DodajZaposlenog" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretmanpreparati.DodajPreparateTretmana" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.korisnik.ValidirajKorisnickoIme" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="protokol.objekti.ServerOdgovor" target="protokol.Status" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Kompanija" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.kompanija.VratiSveKompanijePoID" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretman.VratiSveTretmane" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.TretmanPreparati" target="domen.GenerickiDomenskiObjekat"/>
+    <IsRelation name="is" source="so.raspored.DodajRaspored" target="so.GenerickaSistemskaOperacija"/>
+    <HasRelation name="serverskaNit" source="server.Server" target="server.ServerskaNit" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="baza.RadSaBazom" target="baza.ModelBaze" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerskaNit" target="protokol.objekti.ServerOdgovor" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.raspored.ObrisiRasporedeTretmana" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.korisnik.DodajKorisnika" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.tretmanpreparati.VratiSvePreparateTretmana" target="so.GenerickaSistemskaOperacija"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.TretmanPreparati" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretmanpreparati.VratiSvePreparateTretmana" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.tretman.ObrisiTretman" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.zaposleni.VratiSveZaposlene" target="so.GenerickaSistemskaOperacija"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Korisnik" target="domen.GenerickiDomenskiObjekat"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.rezervacija.StampajRezervaciju" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="so.preparat.DodajPreparat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Kompanija" target="domen.GenerickiDomenskiObjekat"/>
+    <IsRelation name="is" source="so.tretman.IzmeniTretman" target="so.GenerickaSistemskaOperacija"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Rezervacija" target="domen.GenerickiDomenskiObjekat"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Korisnik" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="server.ServerKontroler" target="domen.Raspored" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="baza.RadSaBazom" target="domen.GenerickiDomenskiObjekat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="protokol" source="protokol.objekti.KlijentZahtev" target="protokol.Protokol" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="so.raspored.ObrisiRasporedeTretmana" target="so.GenerickaSistemskaOperacija"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

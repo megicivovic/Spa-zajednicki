@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ZajednickiProjekat">
+  <ClassDiagramComponents>
+    <Class name="Kompanija" package="domen" visibility="public" xPosition="594.0" yPosition="853.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Korisnik" package="domen" visibility="public" xPosition="999.0" yPosition="853.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Preparat" package="domen" visibility="public" xPosition="1802.0" yPosition="540.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Raspored" package="domen" visibility="public" xPosition="1673.0" yPosition="34.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Rezervacija" package="domen" visibility="public" xPosition="1802.0" yPosition="844.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="equals" returnType="Object" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Tretman" package="domen" visibility="public" xPosition="1802.0" yPosition="293.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TretmanPreparati" package="domen" visibility="public" xPosition="1411.0" yPosition="879.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Zaposleni" package="domen" visibility="public" xPosition="389.0" yPosition="577.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="GenerickiDomenskiObjekat" package="domen" visibility="public" xPosition="837.0" yPosition="62.0">
+      <Methods>
+        <Method name="dajNazivTabele" returnType="String" visibility="public"/>
+        <Method name="vratiListuIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+        <Method name="dajInsertVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajApdejtVrednosti" returnType="String" visibility="public"/>
+        <Method name="dajImenaSvihAtributa" returnType="String" visibility="public"/>
+        <Method name="dajID" returnType="String" visibility="public"/>
+        <Method name="vratiBrojIzRS" returnType="ResultSet" visibility="public">
+          <Argument type="ResultSet" name="rs"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="RadSaBazom" package="" visibility="public" xPosition="39.0" yPosition="34.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getInstance" returnType="RadSaBazom" visibility="public"/>
+        <Method name="ucitajDrajver" returnType="void" visibility="public"/>
+        <Method name="uspostaviKonekcijuPropertiesFile" returnType="void" visibility="public"/>
+        <Method name="zatvoriKonekciju" returnType="void" visibility="public"/>
+        <Method name="potvrdiTransakciju" returnType="void" visibility="public"/>
+        <Method name="ponistiTransakciju" returnType="void" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+        <Method name="vratiSveObjekte" returnType="List&lt;GenerickiDomenskiObjekat&gt;" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+        <Method name="sacuvaj" returnType="int" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+        </Method>
+        <Method name="izmeni" returnType="void" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+        </Method>
+        <Method name="pretraziPoID" returnType="GenerickiDomenskiObjekat" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+        <Method name="obrisi" returnType="void" visibility="public">
+          <Argument type="GenerickiDomenskiObjekat" name="domenskiObjekat"/>
+          <Argument type="String" name="uslov"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="" source="RadSaBazom" target="domen.GenerickiDomenskiObjekat" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.TretmanPreparati" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Preparat" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Kompanija" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Korisnik" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Raspored" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Zaposleni" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Rezervacija" target="domen.GenerickiDomenskiObjekat"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="domen.Tretman" target="domen.GenerickiDomenskiObjekat"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

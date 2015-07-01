@@ -59,7 +59,7 @@ public class Korisnik implements GenerickiDomenskiObjekat {
             return false;
         }
         final Korisnik other = (Korisnik) obj;
-        if (!Objects.equals(this.korisnickoIme, other.korisnickoIme)) {
+        if (!other.getKorisnickoIme().equals(this.korisnickoIme)) {
             return false;
         }
         return true;
@@ -118,4 +118,6 @@ public class Korisnik implements GenerickiDomenskiObjekat {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    
+    
 }
