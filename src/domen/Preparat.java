@@ -90,7 +90,7 @@ public class Preparat implements GenerickiDomenskiObjekat {
             k.setKompanijaID(rs.getInt("proizvodjac"));
             k.setPib(rs.getString("pib"));
             k.setMaticniBroj(rs.getString("maticniBroj"));
-            k.setNaziv(rs.getString("naziv"));
+            k.setNaziv(rs.getString("kompanija.naziv"));
             k.setZr(rs.getString("ziroRacun"));
             k.setDatumOsnivanja(new java.util.Date(rs.getDate("datumOsnivanja").getTime()));
             k.setAdresa(rs.getString("adresa"));
