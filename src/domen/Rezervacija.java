@@ -91,7 +91,7 @@ public class Rezervacija implements GenerickiDomenskiObjekat {
 
             Korisnik k = new Korisnik();
             k.setKlijentID(rs.getInt("klijentID"));
-            k.setImePrezime(rs.getString("imePrezime"));
+            k.setImePrezime(rs.getString("klijent.imePrezime"));
             k.setKorisnickoIme(rs.getString("korisnickoIme"));
             k.setKorisnickaSifra(rs.getString("korisnickaSifra"));
 
@@ -114,7 +114,7 @@ public class Rezervacija implements GenerickiDomenskiObjekat {
             r.setKlijent(k);
             r.setTretman(t);
             r.setZaposleni(z);
-            r.setVreme(new java.util.Date(rs.getDate("vreme").getTime()));
+          r.setVreme(new java.util.Date(rs.getTimestamp("vreme").getTime()));
 
             listaRezervacija.add(r);
         }
@@ -123,7 +123,9 @@ public class Rezervacija implements GenerickiDomenskiObjekat {
 
     @Override
     public String dajInsertVrednosti() {
-        String vr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(vreme);
+        System.out.println("Ovde");
+        System.out.println(vreme.getYear());
+        String vr = new SimpleDateFormat("yy-MM-dd HH:mm:ss").format(vreme);        
         return klijent.getKlijentID() + ", " + tretman.getTretmanID() + ", " + zaposleni.getZaposleniID() + ", '" + vr + "'";
     }
 
